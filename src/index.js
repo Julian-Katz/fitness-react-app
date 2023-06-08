@@ -1,13 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+
+import Food from './Routes/Food/Food';
+import App from './App';
+import Dashboard from './Routes/Dashboard/Dashboard';
+import Exercise from './Routes/Exercise/Exercise';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <div>Not Found 404</div>,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "/food",
+        element: <Food />,
+      },
+      {
+        path: "/exercise",
+        element: <Exercise />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
