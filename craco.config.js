@@ -1,8 +1,7 @@
 module.exports = {
-    use: [
-        { loader: 'scoped-css-loader' },
+    plugins: [
+        {
+          plugin: require('craco-plugin-scoped-css'),
+        },
     ],
-    babel: {
-        plugins: ["babel-plugin-react-scoped-css"]
-    }
 };
