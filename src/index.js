@@ -4,10 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-import Food from './Routes/Food/Food';
 import App from './App';
 import Dashboard from './Routes/Dashboard/Dashboard';
+import Food from './Routes/Food/Food';
 import Exercise from './Routes/Exercise/Exercise';
+
+import SignIn from './Routes/SignIn/SignIn';
+import SignUp from './Routes/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,14 @@ const router = createBrowserRouter([
         element: <Exercise />,
       },
     ],
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
   },
 ]);
 
