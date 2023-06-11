@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
 import './index.css';
+import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import store from './store';
+import { Provider } from 'react-redux';
 
 import App from './App';
-import Dashboard from './Routes/Dashboard/Dashboard';
-import Food from './Routes/Food/Food';
-import Exercise from './Routes/Exercise/Exercise';
+import Dashboard from './Features/Dashboard/Dashboard';
+import Food from './Features/Food/Food';
+import Exercise from './Features/Exercise/Exercise';
 
-import SignIn from './Routes/SignIn/SignIn';
-import SignUp from './Routes/SignUp/SignUp';
+import SignIn from './Features/SignIn/SignIn';
+import SignUp from './Features/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +47,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
