@@ -12,8 +12,8 @@ import Food from './Features/Food/Food';
 import AddFood from './Features/Food/AddFood';
 import Exercise from './Features/Exercise/Exercise';
 
-import SignIn from './Features/SignIn/SignIn';
-import SignUp from './Features/SignUp/SignUp';
+import SignIn from './Features/Auth/Components/SignIn/SignIn';
+import SignUp from './Features/Auth/Components/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {

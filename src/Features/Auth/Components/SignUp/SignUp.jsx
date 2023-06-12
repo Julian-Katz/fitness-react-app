@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "../../axiosURL";
+import axios from "../../../../axiosURL";
 
 function SignUp() {
     const [email, setEmail] = useState("");
