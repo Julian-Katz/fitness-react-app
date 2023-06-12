@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../axiosURL';
 
-export const loadAsync = createAsyncThunk('food/loadAsync',
+export const loadAsync = createAsyncThunk(
+  'food/loadAsync',
   async () => {
-  const response = await axios.get('/fitness/food/');
-  return response.data;
+    const response = await axios.get('/fitness/food/');
+    return response.data;
 });
 
 export const addFoodAsync = createAsyncThunk(
@@ -21,14 +22,6 @@ const foodSlice = createSlice({
     foods: [],
     status: 'idle',
     error: null,
-  },
-  reducers: {
-    add: (state, action) => {
-        state.foods.push(action.payload);
-    },
-    remove: (state, action) => {
-        state.foods = state.foods.filter(food => food._id !== action.payload);
-    }
   },
   extraReducers: builder => {
     builder
@@ -55,8 +48,6 @@ const foodSlice = createSlice({
       });
   },
 });
-
-export const { add, remove } = foodSlice.actions;
 
 
 export default foodSlice.reducer;
