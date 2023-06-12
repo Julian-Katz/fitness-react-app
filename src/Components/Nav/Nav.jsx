@@ -14,6 +14,12 @@ function Nav() {
         <li>
           <Link to="/exercise">Übungen</Link>
         </li>
+        <li>
+          <Link to="/sign-up">Registrieren</Link>
+        </li>
+        <li>
+          <Link to="/sign-in">Einloggen</Link>
+        </li>
       </ul>
     </div>
   );

@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import Dashboard from './Features/Dashboard/Dashboard';
 import Food from './Features/Food/Food';
+import AddFood from './Features/Food/AddFood';
 import Exercise from './Features/Exercise/Exercise';
 
 import SignIn from './Features/SignIn/SignIn';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/food",
         element: <Food />,
+      },
+      {
+        path: "/add-food",
+        element: <AddFood />,
       },
       {
         path: "/exercise",
