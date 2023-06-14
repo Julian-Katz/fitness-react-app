@@ -1,20 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import axios from "../../../../axiosURL";
+import { useDispatch } from "react-redux";
+import { signUpAsync, selectError } from "../../authSlice";
+import { useSelector } from "react-redux";
 
 function SignUp() {
+    const disptach = useDispatch();
+    const error = useSelector(selectError);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [response, setResponse] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("/signup", { email, password }, { withCredentials: true })
-        .then((res) => {
-            console.log(res);
-        }).catch((err) => {
-            setResponse(err.response.data);
-        });
+        disptach(signUpAsync({ email, password }));
     }
 
     return (
@@ -29,7 +27,7 @@ function SignUp() {
 
                 <button type="submit">Registrieren</button>
             </form>
-            <p>{response}</p>
+            <p>{error}</p>
         </div>
     );
 };
