@@ -6,6 +6,7 @@ export const signInAsync = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post('/signin', data);
+      window.location.href = '/';
       return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -21,6 +22,7 @@ export const signUpAsync = createAsyncThunk(
 	async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post('/signup', data);
+      window.location.href = '/';
       return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -36,6 +38,7 @@ export const signOutAsync = createAsyncThunk(
 	'auth/SignOutAsync',
 	async (data) => {
 		const response = await axios.post('/logout', data);
+    window.location.href = '/sign-in';
 		return response.data;
 	}
 );

@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signOutAsync } from '../../Features/Auth/authSlice';
 import './Nav.scoped.css'
 
 function Nav() {
+  const dispatch = useDispatch();
+  const handleSignOut = () => {
+    dispatch(signOutAsync());
+    window.location.href = '/sign-in';
+  }
+
   return (
     <div className='sidebar'>
       <ul>
@@ -19,6 +27,9 @@ function Nav() {
         </li>
         <li>
           <Link to="/sign-in">Einloggen</Link>
+        </li>
+        <li>
+          <button type='button' onClick={handleSignOut}>Ausloggen</button>
         </li>
       </ul>
     </div>
