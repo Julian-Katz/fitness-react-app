@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from '../../axiosURL';
-import { useDispatch } from 'react-redux';
-import { addFoodAsync } from './foodSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFoodAsync, selectError } from '../foodSlice';
 
 function AddFood() {
     const dispatch = useDispatch();
 
+    const error = useSelector(selectError);
     const [name, setName] = useState("");
     const [baseAmount, setBaseAmount] = useState();
     const [energy, setEnergy] = useState();
@@ -56,6 +56,7 @@ function AddFood() {
                 <input type="checkbox" id='drink' onChange={(e) => setDrink(e.target.checked)} />
                 <input type="submit" />
             </form>
+            <p>{error}</p>
         </div>
     );
 };

@@ -1,0 +1,26 @@
+.card {
+  min-width: 200px;
+  padding: 1rem;
+  background: rgb(226, 226, 226);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+caption {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+table td,
+table tr {
+  text-align: left;
+}
+
+tr:nth-child(even),
+td:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+tr:nth-child(odd),
+td:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.5);
+}

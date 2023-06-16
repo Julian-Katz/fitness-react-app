@@ -1,30 +1,33 @@
 import React from 'react';
-import './Food.scoped.css';
+import AddFood from './Components/AddFood';
+import Food from './Components/Food';
+import './Foods.scoped.css'
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loadAsync, selectFoods } from './foodSlice';
 import { useEffect } from 'react';
 
-function Food() {
+function Foods() {
     const foods = useSelector(selectFoods);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(loadAsync());
     }, [dispatch]);
-    
-    console.log(foods);
-    
+
     return (
         <div>
             <h2>Food Page</h2>
-            <ul>
-                {foods.map((food) => (
-                    <li key={food._id}><b>{food.name}</b></li>
-                ))}
-            </ul>
+            <div>
+              <AddFood />
+            </div>
+            <div className='list'>
+              {foods.map((food) => (
+                <Food key={food._id}  food={food} />
+              ))}
+            </div>
         </div>
     );
 };
 
 
-export default Food;
+export default Foods;

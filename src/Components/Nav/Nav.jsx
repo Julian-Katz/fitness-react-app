@@ -9,7 +9,7 @@ function Nav() {
           <Link to="/">Dashboard</Link>
         </li>
         <li>
-          <Link to="/food">Essen</Link>
+          <Link to="/foods">Essen</Link>
         </li>
         <li>
           <Link to="/exercise">Übungen</Link>
