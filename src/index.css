@@ -5,7 +5,7 @@
 }
 
 .sidebar {
-  background: rgba(255, 0, 0, 0.411);
+  background: rgba(0, 119, 255, 0.411);
   width: 100vw;
   height: 72px;
   position: relative;
@@ -16,7 +16,6 @@
   margin-left: 0;
   display: flex;
   justify-content: center;
-  background: violet;
 }
 
 .container .content-area {
@@ -37,7 +36,6 @@
   }
 
   .container {
-    background: rgb(0, 255, 242);
     margin-left: 72px;
   }
 
