@@ -3,7 +3,7 @@ import './Nav.scoped.css'
 
 function Nav() {
   return (
-    <div>
+    <div className='sidebar'>
       <ul>
         <li>
           <Link to="/">Dashboard</Link>

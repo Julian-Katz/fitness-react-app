@@ -3,3 +3,60 @@
 	margin: 0;
 	padding: 0;
 }
+
+.sidebar {
+  background: rgba(255, 0, 0, 0.411);
+  width: 100vw;
+  height: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+  background: violet;
+}
+
+.container .content-area {
+  width: 100%;
+  max-width: 1040px;
+  margin: 32px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+@media screen and (min-width: calc(599px + 72px)) {
+  .sidebar {
+    width: 72px;
+    height: 100vh;
+    position: fixed;
+  }
+
+  .container {
+    background: rgb(0, 255, 242);
+    margin-left: 72px;
+  }
+
+  .container .content-area {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media screen and (min-width: calc(1239px + 280px)) {
+  .sidebar {
+    width: 280px;
+  }
+
+  .container {
+    margin-left: 280px;
+  }
+  .container .content-area {
+    width: 100%;
+    margin: 32px 40px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

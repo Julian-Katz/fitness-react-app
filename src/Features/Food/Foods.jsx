@@ -15,16 +15,16 @@ function Foods() {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className='content-area'>
             <h2>Food Page</h2>
-            <div>
+            <div className='card'>
               <AddFood />
             </div>
-            <div className='list'>
               {foods.map((food) => (
-                <Food key={food._id}  food={food} />
+                <div className='card'>
+                  <Food key={food._id}  food={food}/>
+                </div>
               ))}
-            </div>
         </div>
     );
 };
