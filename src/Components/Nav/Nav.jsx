@@ -13,8 +13,14 @@ function Nav() {
   return (
     <div className='sidebar'>
       <ul>
+        <div>
+          <button>Profil wählen</button>
+        </div>
         <li>
           <Link to="/">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/exercise">Tag</Link>
         </li>
         <li>
           <Link to="/foods">Essen</Link>

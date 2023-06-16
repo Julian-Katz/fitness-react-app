@@ -1,7 +1,16 @@
+
 .card {
-  min-width: 200px;
+  background: var(--background-secondary);
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.card-content {
   padding: 1rem;
-  background: rgb(226, 226, 226);
+}
+button {
+  width: 50%;
+  padding: 1rem;
 }
 table {
   width: 100%;
@@ -16,11 +25,9 @@ table tr {
   text-align: left;
 }
 
-tr:nth-child(even),
-td:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.25);
+tr:nth-child(even) {
+  background-color: rgb(255, 255, 255);
 }
-tr:nth-child(odd),
-td:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.5);
+tr:nth-child(odd) {
+  background-color: rgb(228, 228, 228);
 }

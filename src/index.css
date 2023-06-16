@@ -1,3 +1,5 @@
+@import url('./variables.css');
+
 *, *::before, *::after {
   box-sizing: border-box;
 	margin: 0;
@@ -10,7 +12,8 @@ body {
   font-size: 16px;
   line-height: 1.75;
   font-weight: 300;
-  color: #000000;
+  color: var(--dark_text);
+  background: var(--background);
 }
 
 p {
@@ -44,7 +47,7 @@ h5 {
 
 /* Layout */
 .sidebar {
-  background: rgba(0, 119, 255, 0.411);
+  background: var(--primary);
   width: 100vw;
   height: 72px;
   position: relative;
