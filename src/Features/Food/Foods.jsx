@@ -16,7 +16,7 @@ function Foods() {
 
     return (
         <div className='content-area'>
-            <h2>Food Page</h2>
+            <h1>Food Page</h1>
             <div className='card'>
               <AddFood />
             </div>
