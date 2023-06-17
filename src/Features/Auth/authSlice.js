@@ -6,7 +6,6 @@ export const signInAsync = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post('/signin', data);
-      window.location.href = '/';
       return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -22,7 +21,6 @@ export const signUpAsync = createAsyncThunk(
 	async (data, { rejectWithValue }) => {
     try {
       const response = await axios.post('/signup', data);
-      window.location.href = '/';
       return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -38,7 +36,6 @@ export const signOutAsync = createAsyncThunk(
 	'auth/SignOutAsync',
 	async (data) => {
 		const response = await axios.post('/logout', data);
-    window.location.href = '/sign-in';
 		return response.data;
 	}
 );
@@ -46,29 +43,29 @@ export const signOutAsync = createAsyncThunk(
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-      authenticated: false,
+      user: false,
       error: null,
   },
   extraReducers: builder => {
     builder
       .addCase(signInAsync.fulfilled, (state, action) => {
-        state.authenticated = true;
+        state.user = action.payload;
         state.error = null;
       })
       .addCase(signInAsync.rejected, (state, action) => {
-        state.authenticated = false;
+        state.user = null;
         state.error = action.payload
       })
       .addCase(signUpAsync.fulfilled, (state, action) => {
-        state.authenticated = true;
+        state.user = action.payload;
         state.error = null;
       })
       .addCase(signUpAsync.rejected, (state, action) => {
-        state.authenticated = false;
+        state.user = null;
         state.error = action.payload;
       })
       .addCase(signOutAsync.fulfilled, (state, action) => {
-        state.authenticated = false;
+        state.user = false;
         state.error = null;
       })
   },
@@ -77,5 +74,5 @@ const authSlice = createSlice({
 
 export default authSlice.reducer;
 
-export const selectAuthenticated = state => state.auth.authenticated;
+export const selectUser = state => state.auth.user;
 export const selectError = state => state.auth.error;
