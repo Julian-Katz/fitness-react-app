@@ -2,17 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { signInAsync, selectError } from "../../authSlice";
+import { useNavigate } from "react-router-dom";
 
 
 function LogIn() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const error = useSelector(selectError);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(signInAsync({ email, password }))
+    const resultAction = await dispatch(signInAsync({ email, password }));
+    if (signInAsync.fulfilled.match(resultAction)) {
+      navigate("/");
+    }
   };
 
   return (
