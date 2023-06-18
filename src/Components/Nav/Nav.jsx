@@ -1,44 +1,84 @@
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { signOutAsync } from '../../Features/Auth/authSlice';
-import './Nav.scoped.css'
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOutAsync, selectUser } from '../../Features/Auth/authSlice';
+
+import './Nav.scoped.css';
+
+import {ReactComponent as Menu} from '../../assets/icons/menu.svg';
+import {ReactComponent as Logo} from '../../assets/icons/sports_gymnastics.svg';
+import {ReactComponent as  Profile} from '../../assets/icons/person.svg';
+import {ReactComponent as Dashboard} from '../../assets/icons/dashboard.svg';
+import {ReactComponent as Day} from '../../assets/icons/motion_photos_on.svg';
+import {ReactComponent as Food} from '../../assets/icons/restaurant.svg';
+import {ReactComponent as Exercise} from '../../assets/icons/exercise.svg';
+import {ReactComponent as User} from '../../assets/icons/account_circle.svg';
 
 function Nav() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/sign-in');
+    }
+  }, [user, navigate]);
+
   const handleSignOut = () => {
     dispatch(signOutAsync());
-    window.location.href = '/sign-in';
   }
 
   return (
-    <div className='sidebar'>
-      <ul>
-        <div>
-          <button>Profil wählen</button>
+    <>
+      <div className='top'>
+        <button className='menue-switch' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Menu />
+        </button>
+        <div className='logo'>
+          <Logo />
+          {/* <span>Sport</span> */}
         </div>
-        <li>
-          <Link to="/">Dashboard</Link>
+      </div>
+      <nav className={`bar ${isMenuOpen ? 'open' : ''}`}>
+        <div className='middle'>
+          <button type='button' className='nav-element'>
+            <Profile />
+            Profil
+          </button>
+          <NavLink to="/" className='nav-element'>
+            <Dashboard />
+            Dashboard
+          </NavLink>
+          <NavLink to="/day" className='nav-element'>
+            <Day />
+            Tag
+          </NavLink>
+          <NavLink to="/foods" className='nav-element'>
+            <Food />
+            Essen
+          </NavLink>
+          <NavLink to="/exercise" className='nav-element'>
+            <Exercise />
+            Übungen
+          </NavLink>
+        {/* <li className='nav-element'>
+          <NavLink to="/sign-up">Registrieren</NavLink>
         </li>
-        <li>
-          <Link to="/exercise">Tag</Link>
-        </li>
-        <li>
-          <Link to="/foods">Essen</Link>
-        </li>
-        <li>
-          <Link to="/exercise">Übungen</Link>
-        </li>
-        <li>
-          <Link to="/sign-up">Registrieren</Link>
-        </li>
-        <li>
-          <Link to="/sign-in">Einloggen</Link>
-        </li>
-        <li>
-          <button type='button' onClick={handleSignOut}>Ausloggen</button>
-        </li>
-      </ul>
-    </div>
+        <li className='nav-element'>
+          <NavLink to="/sign-in">Einloggen</NavLink>
+        </li> */}
+        </div>
+
+        <div className='bottom'>
+          <button className="nav-element" type='button' onClick={handleSignOut}>
+            <User />
+            Ausloggen
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }
 

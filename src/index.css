@@ -44,15 +44,10 @@ h5 {
   font-size: 1.25rem;
 }
 
+/* Buttons */
+
 
 /* Layout */
-.sidebar {
-  background: var(--primary);
-  width: 100vw;
-  height: 72px;
-  position: relative;
-  overflow: hidden;
-}
 
 .container {
   margin-left: 0;
@@ -64,6 +59,7 @@ h5 {
   width: 100%;
   max-width: 1040px;
   margin: 32px 16px;
+  margin-top: calc(32px + 72px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
@@ -77,11 +73,6 @@ h5 {
 }
 
 @media screen and (min-width: calc(1239px + 280px)) {
-  .sidebar {
-    width: 280px;
-    height: 100vh;
-    position: fixed;
-  }
 
   .container {
     margin-left: 280px;
