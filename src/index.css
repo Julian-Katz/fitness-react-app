@@ -70,17 +70,7 @@ h5 {
   row-gap: 16px;
 }
 
-@media screen and (min-width: calc(599px + 72px)) {
-  .sidebar {
-    width: 72px;
-    height: 100vh;
-    position: fixed;
-  }
-
-  .container {
-    margin-left: 72px;
-  }
-
+@media screen and (min-width: calc(599px + 280px)) {
   .container .content-area {
     grid-template-columns: repeat(8, 1fr);
   }
@@ -89,6 +79,8 @@ h5 {
 @media screen and (min-width: calc(1239px + 280px)) {
   .sidebar {
     width: 280px;
+    height: 100vh;
+    position: fixed;
   }
 
   .container {
