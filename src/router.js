@@ -5,9 +5,11 @@ import App from './App';
 import Dashboard from './Features/Dashboard/Dashboard';
 import Foods from './Features/Food/Foods';
 import Exercise from './Features/Exercise/Exercise';
+import AddProfile from './Features/Profile/Components/AddProfile';
 
 import SignIn from './Features/Auth/Components/SignIn/SignIn';
 import SignUp from './Features/Auth/Components/SignUp/SignUp';
+
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/exercise",
         element: <Exercise />,
+      },
+      {
+        path: "/profile",
+        element: <AddProfile />,
       },
     ],
   },

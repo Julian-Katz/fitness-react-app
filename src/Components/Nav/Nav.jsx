@@ -5,6 +5,8 @@ import { signOutAsync, selectUser } from '../../Features/Auth/authSlice';
 
 import './Nav.scoped.css';
 
+import DropDownProfile from '../../Features/Profile/Components/DropDownProfile/DropDownProfile';
+
 import {ReactComponent as Menu} from '../../assets/icons/menu.svg';
 import {ReactComponent as Logo} from '../../assets/icons/sports_gymnastics.svg';
 import {ReactComponent as  Profile} from '../../assets/icons/person.svg';
@@ -43,10 +45,7 @@ function Nav() {
       </div>
       <nav className={`bar ${isMenuOpen ? 'open' : ''}`}>
         <div className='middle'>
-          <button type='button' className='nav-element'>
-            <Profile />
-            Profil
-          </button>
+          <DropDownProfile />
           <NavLink to="/" className='nav-element'>
             <Dashboard />
             Dashboard
