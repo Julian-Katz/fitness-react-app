@@ -1,6 +1,8 @@
 import React from 'react';
 import './Food.scoped.css'
 import InlineEdit from '../../../Components/InlineEdit';
+import Card from '../../../Components/Card';
+import MeatBalls from '../../../Components/MeatBalls';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -11,17 +13,43 @@ function Food(props) {
     const [edit, setEdit] = useState(false);
     const [food, setFood] = useState({...props.food});
 
+
     const handleUpdate = () => {
       setEdit(!edit);
       dispatch(updateFoodAsync(food));
+    }
+    const handleStopUpdate = () => {
+      setEdit(!edit);
+      setFood({...props.food});
     }
     const handleDelete = () => {
       dispatch(deleteFoodAsync(food._id));
     }
 
+    const buttons = (
+      <>
+      {!edit && (
+        <button type="button" onClick={() => setEdit(!edit)}>
+          bearbeiten
+        </button>
+      )}
+
+      {edit && (
+        <>
+        <button type="button" onClick={handleUpdate}>
+          speichern
+        </button>
+        <button type="button" onClick={handleStopUpdate}>
+          verwerfen
+        </button>
+        </>
+      )}
+      </>
+    );
+
     return (
-        <div className='card'>
-          <div className='card-content'>
+        <Card buttons={buttons}>
+          <div className="header">
             <h2>
               <InlineEdit
                 type='text'
@@ -30,100 +58,99 @@ function Food(props) {
                 handleChange={(event) => setFood({...food, name: event.target.value})}
               />
             </h2>
-            <table id="Books">
-                <caption>
-                  Nährwerte pro
-                  <InlineEdit
-                    type='number'
-                    value={food.baseAmount}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, baseAmount: event.target.value})}
-                  />
-                  g
-                </caption>
-              <tbody>
-                <tr>
-                  <th>Energie</th>
-                  <td>
-                    <InlineEdit
-                      type='number'
-                      value={food.energy}
-                      edit={edit}
-                      handleChange={(event) => setFood({...food, energy: event.target.value})}
-                      />
-                      kcal
-                  </td>
-                </tr>
-                <tr>
-                  <th>Eiweiß</th>
-                  <td>
-                  <InlineEdit
-                    type='number'
-                    value={food.protein}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, protein: event.target.value})}
-                  />
-                  g
-                  </td>
-                </tr>
-                <tr>
-                  <th>Kohlenhydrathe</th>
-                  <td>
-                  <InlineEdit
-                    type='number'
-                    value={food.carbohydrates}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, carbohydrates: event.target.value})}
-                  />
-                  g
-                  </td>
-                </tr>
-                <tr>
-                  <th>Fett</th>
-                  <td>
-                  <InlineEdit
-                    type='number'
-                    value={food.fat}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, fat: event.target.value})}
-                  />
-                  g
-                  </td>
-                </tr>
-                <tr>
-                  <th>Ballaststoffe</th>
-                  <td>
-                  <InlineEdit
-                    type='number'
-                    value={food.fiber}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, fiber: event.target.value})}
-                  />
-                  g
-                  </td>
-                </tr>
-                <tr>
-                  <th>Salz</th>
-                  <td>
-                  <InlineEdit
-                    type='number'
-                    value={food.salt}
-                    edit={edit}
-                    handleChange={(event) => setFood({...food, salt: event.target.value})}
-                  />
-                  g
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <MeatBalls>
+            <button type='button' onClick={handleDelete}>
+              löschen
+            </button>
+            </MeatBalls>
           </div>
-          <button type="button" onClick={handleUpdate}>
-            {edit ? 'speichern' : 'bearbeiten'}
-          </button>
-          <button type='button' onClick={handleDelete}>
-            löschen
-          </button>
-        </div>
+          <table id="Books">
+            <caption>
+              Nährwerte pro
+              <InlineEdit
+                type='number'
+                value={food.baseAmount}
+                edit={edit}
+                handleChange={(event) => setFood({...food, baseAmount: event.target.value})}
+              />
+              g
+            </caption>
+            <tbody>
+              <tr>
+                <th>Energie</th>
+                <td>
+                  <InlineEdit
+                    type='number'
+                    value={food.energy}
+                    edit={edit}
+                    handleChange={(event) => setFood({...food, energy: event.target.value})}
+                    />
+                    kcal
+                </td>
+              </tr>
+              <tr>
+                <th>Eiweiß</th>
+                <td>
+                <InlineEdit
+                  type='number'
+                  value={food.protein}
+                  edit={edit}
+                  handleChange={(event) => setFood({...food, protein: event.target.value})}
+                />
+                g
+                </td>
+              </tr>
+              <tr>
+                <th>Kohlenhydrathe</th>
+                <td>
+                <InlineEdit
+                  type='number'
+                  value={food.carbohydrates}
+                  edit={edit}
+                  handleChange={(event) => setFood({...food, carbohydrates: event.target.value})}
+                />
+                g
+                </td>
+              </tr>
+              <tr>
+                <th>Fett</th>
+                <td>
+                <InlineEdit
+                  type='number'
+                  value={food.fat}
+                  edit={edit}
+                  handleChange={(event) => setFood({...food, fat: event.target.value})}
+                />
+                g
+                </td>
+              </tr>
+              <tr>
+                <th>Ballaststoffe</th>
+                <td>
+                <InlineEdit
+                  type='number'
+                  value={food.fiber}
+                  edit={edit}
+                  handleChange={(event) => setFood({...food, fiber: event.target.value})}
+                />
+                g
+                </td>
+              </tr>
+              <tr>
+                <th>Salz</th>
+                <td>
+                <InlineEdit
+                  type='number'
+                  value={food.salt}
+                  edit={edit}
+                  handleChange={(event) => setFood({...food, salt: event.target.value})}
+                />
+                g
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Card>
     );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.scoped.css'
+import './Card.css'
 
 function Card(props) {
     return (

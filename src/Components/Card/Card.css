@@ -1,0 +1,34 @@
+.card {
+  background: var(--background-secondary);
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.card .header h2 {
+  margin: 0;
+}
+.card .card-content {
+  padding: 1rem;
+}
+
+.card .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 1rem 1rem;
+}
+.card .buttons > * {
+  width: 100%;
+  padding: 1rem;
+
+}
