@@ -1,0 +1,27 @@
+.meatballs {
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.meatballs svg {
+  width: 3rem;
+  fill: var(--priamry);
+}
+
+.meatballs .options {
+  position: absolute;
+  right: 0;
+  border-radius: 10px;
+  background: white;
+  outline: 3px solid var(--primary);
+}
+.meatballs .options button {
+  padding: 1rem;
+  border: none;
+  border-bottom: 3px solid var(--primary);
+  background: none;
+}
+.meatballs .options button:last-child {
+  border-bottom: none;
+}
