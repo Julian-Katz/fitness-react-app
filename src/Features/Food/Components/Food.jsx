@@ -4,6 +4,9 @@ import InlineEdit from '../../../Components/InlineEdit';
 import Card from '../../../Components/Card';
 import MeatBalls from '../../../Components/MeatBalls';
 
+import { ReactComponent as FoodIcon } from '../../../assets/icons/lunch_dining.svg';
+import { ReactComponent as DrinkIcon } from '../../../assets/icons/water_full.svg';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { deleteFoodAsync, updateFoodAsync } from '../foodSlice';
@@ -51,6 +54,7 @@ function Food(props) {
         <Card buttons={buttons}>
           <div className="header">
             <h2>
+              { food.drink ? <DrinkIcon /> : <FoodIcon /> }
               <InlineEdit
                 type='text'
                 value={food.name}

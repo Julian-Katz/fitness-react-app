@@ -14,7 +14,14 @@
   align-items: center;
   margin-bottom: 1rem;
 }
+.card .header h2 svg {
+  width: 2rem;
+  fill: var(--primary);
+}
 .card .header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0;
 }
 .card .card-content {
