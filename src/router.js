@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import Dashboard from './Features/Dashboard/Dashboard';
 import Foods from './Features/Food/Foods';
-import Exercise from './Features/Exercise/Exercise';
+import Exercise from './Features/Exercise/Exercises';
 import AddProfile from './Features/Profile/Components/AddProfile';
 
 import SignIn from './Features/Auth/Components/SignIn/SignIn';
