@@ -3,6 +3,7 @@ import './Exercises.scoped.css';
 import AddExercise from './Components/AddExercise';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadAsync, selectExercises } from './exerciseSlice';
+import ExerciseCard from './Components/ExerciseCard';
 
 function Exercises() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function Exercises() {
       <AddExercise />
       {
         exercises.map((exercise) => (
-          <div>{exercise.name}</div>
+          <ExerciseCard exercise={exercise} key={exercise._id} />
         ))
       }
     </div>
