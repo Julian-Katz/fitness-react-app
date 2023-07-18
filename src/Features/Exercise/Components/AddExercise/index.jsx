@@ -39,7 +39,7 @@ function Exercises() {
         <label htmlFor="fiber">Zeit</label>
         <input type="number" id='fiber' onChange={(e) => setBaseTime(e.target.value)} />
         <label htmlFor="drink">Verbrannte Energy</label>
-        <input type="number" id='drink' onChange={(e) => setEnergyBurned(e.target.checked)} />
+        <input type="number" id='drink' onChange={(e) => setEnergyBurned(e.target.value)} />
         <p>{error}</p>
       </form>
     </Card>
