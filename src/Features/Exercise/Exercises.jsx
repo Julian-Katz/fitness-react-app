@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Exercises.scoped.css';
-import AddExercises from './Components/AddExercises';
+import AddExercise from './Components/AddExercise';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadAsync, selectExercises } from './exerciseSlice';
 
@@ -15,7 +15,7 @@ function Exercises() {
   return (
     <div className='content-area'>
       <h1>Übungen</h1>
-      <AddExercises />
+      <AddExercise />
       {
         exercises.map((exercise) => (
           <div>{exercise.name}</div>

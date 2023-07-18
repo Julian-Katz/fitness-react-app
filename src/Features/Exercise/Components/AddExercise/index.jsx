@@ -1,7 +1,7 @@
 import React from 'react';
 import { addExerciseAsync, selectError } from '../../exerciseSlice';
 import { useState } from 'react';
-import './AddExercises.scoped.css';
+import './AddExercise.scoped.css';
 import Card from '../../../../Components/Card';
 import { useDispatch, useSelector } from 'react-redux';
 
