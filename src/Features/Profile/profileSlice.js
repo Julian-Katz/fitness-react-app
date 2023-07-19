@@ -87,6 +87,7 @@ const profileSlice = createSlice({
       .addCase(loadAsync.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.profiles = action.payload;
+        state.activeProfile = action.payload[0];
       })
       .addCase(addProfileAsync.fulfilled, (state, action) => {
         state.status = 'succeeded';
