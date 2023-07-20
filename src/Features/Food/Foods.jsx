@@ -16,7 +16,7 @@ function Foods() {
 
     return (
         <div className='content-area'>
-            <h1>Food Page</h1>
+            <h1>Essen</h1>
             <AddFood />
             {foods.map((food) => (
             <Food key={food._id} food={food}/>
