@@ -105,7 +105,7 @@ function Food(props) {
                 </td>
               </tr>
               <tr>
-                <th>Kohlenhydrathe</th>
+                <th>Kohlenhydrate</th>
                 <td>
                 <InlineEdit
                   type='number'
