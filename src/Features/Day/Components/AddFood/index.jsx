@@ -60,7 +60,7 @@ function AddFood(props) {
   )
 
   const buttons = (
-    <button type="submit" onClick={handleAddFood} >Hinzufügen</button>
+    <button type="submit" className='button' onClick={handleAddFood} >Hinzufügen</button>
   )
 
   return (
@@ -71,8 +71,8 @@ function AddFood(props) {
           <select name="foods" value={foodId} onChange={(e) => setFoodId(e.target.value)}>
             {foodOptions}
           </select>
-          <label htmlFor="amount">Menge</label>
-          <input type="number" name="amount" value={foodAmount} onChange={(e) => setFoodAmount(e.target.value)} />g
+          <label htmlFor="amount">Menge (g)</label>
+          <input type="number" name="amount" value={foodAmount} onChange={(e) => setFoodAmount(e.target.value)} />
           <p>{error}</p>
         </form>
       </Card>

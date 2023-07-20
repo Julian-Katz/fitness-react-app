@@ -59,7 +59,7 @@ function AddExercise(props) {
     )
 
     const buttons = (
-      <button type="submit" onClick={handleAddExercise} >Hinzufügen</button>
+      <button type="submit" className='button' onClick={handleAddExercise} >Hinzufügen</button>
     )
 
   return (
@@ -69,8 +69,8 @@ function AddExercise(props) {
           <select name="exercise" value={exerciseId} onChange={(e) => setExerciseId(e.target.value)}>
             {exerciseOptions}
           </select>
-          <label htmlFor="time">Zeit</label>
-          <input type="number" name="time" value={exerciseTime} onChange={(e) => setExerciseTime(e.target.value)} />min
+          <label htmlFor="time">Zeit (min)</label>
+          <input type="number" name="time" value={exerciseTime} onChange={(e) => setExerciseTime(e.target.value)} />
         </form>
     </Card>
   );

@@ -27,7 +27,7 @@ function Foods() {
 
   const buttons = (
     <>
-      <button type="submit" onClick={handleSubmit} >Submit</button>
+      <button type="submit" className='button' onClick={handleSubmit} >Hinzufügen</button>
     </>
   )
 
@@ -38,9 +38,9 @@ function Foods() {
         <input id="name" type="text" onChange={(e) => setName(e.target.value)} />
         <label htmlFor="age">Age</label>
         <input id="age" type="number" onChange={(e) => setAge(e.target.value)} />
-        <label htmlFor="height">Height</label>
+        <label htmlFor="height">Height (cm)</label>
         <input id="height" type="number" onChange={(e) => setHeight(e.target.value)} />
-        <label htmlFor="weight">Weight</label>
+        <label htmlFor="weight">Weight (kg)</label>
         <input id="weight" type="number" onChange={(e) => setWeight(e.target.value)} />
         <label htmlFor="sex">Sex</label>
         <div>

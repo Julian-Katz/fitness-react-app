@@ -24,7 +24,7 @@ function Exercises() {
 
   const buttons = (
     <>
-      <button type="submit" onClick={handleSubmit} >Submit</button>
+      <button type="submit" className='button' onClick={handleSubmit} >Hinzufügen</button>
     </>
   )
 
@@ -32,13 +32,12 @@ function Exercises() {
     <Card buttons={buttons}>
       <form>
         <div className="header">
-          <h2>Übung hinzufügen</h2>
         </div>
         <label htmlFor="name">Name</label>
         <input type="text" id='name' onChange={(e) => setName(e.target.value)} />
-        <label htmlFor="fiber">Zeit</label>
+        <label htmlFor="fiber">Zeit (min)</label>
         <input type="number" id='fiber' onChange={(e) => setBaseTime(e.target.value)} />
-        <label htmlFor="drink">Verbrannte Energy</label>
+        <label htmlFor="drink">Verbrannte kcal</label>
         <input type="number" id='drink' onChange={(e) => setEnergyBurned(e.target.value)} />
         <p>{error}</p>
       </form>

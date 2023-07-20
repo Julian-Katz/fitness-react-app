@@ -26,17 +26,17 @@ function ExerciseCard(props) {
   const buttons = (
     <>
     {!edit && (
-      <button type="button" onClick={() => setEdit(!edit)}>
+      <button type="button" className='button' onClick={() => setEdit(!edit)}>
         bearbeiten
       </button>
     )}
 
     {edit && (
       <>
-      <button type="button" onClick={handleUpdate}>
+      <button type="button" className='button' onClick={handleUpdate}>
         speichern
       </button>
-      <button type="button" onClick={handleStopUpdate}>
+      <button type="button" className='button secondary' onClick={handleStopUpdate}>
         verwerfen
       </button>
       </>
@@ -63,7 +63,7 @@ function ExerciseCard(props) {
       </div>
       <div>
         <p>
-          <b>Zeit: </b>
+          <b>Zeit (min): </b>
           <InlineEdit
             type='number'
             value={exercise.baseTime}
@@ -72,7 +72,7 @@ function ExerciseCard(props) {
           />
         </p>
         <p>
-          <b>Verbrannte Energie: </b>
+          <b>Verbrannte kcal: </b>
           <InlineEdit
             type='number'
             value={exercise.energyBurned}

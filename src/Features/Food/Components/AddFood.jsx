@@ -36,7 +36,7 @@ function AddFood() {
 
     const buttons = (
       <>
-        <button type="submit" onClick={handleSubmit} >Submit</button>
+        <button type="submit" className='button' onClick={handleSubmit} >Hinzufügen</button>
       </>
     )
 
@@ -44,27 +44,25 @@ function AddFood() {
       <Card buttons={buttons}>
         <form>
           <div className="header">
-            <h2>AddFood</h2>
           </div>
           <label htmlFor="name">Name</label>
           <input type="text" id='name' onChange={(e) => setName(e.target.value)} />
-          <label htmlFor="baseAmount">baseAmount</label>
+          <label htmlFor="baseAmount">Basis Gewicht (g)</label>
           <input type="number" id='baseAmount' onChange={(e) => setBaseAmount(e.target.value)} />
-          <label htmlFor="energy">energy</label>
+          <label htmlFor="energy">Kalorien (kcal)</label>
           <input type="number" id='energy' onChange={(e) => setEnergy(e.target.value)} />
-          <label htmlFor="fat">fat</label>
+          <label htmlFor="fat">Fett (g)</label>
           <input type="number" id='fat' onChange={(e) => setFat(e.target.value)} />
-          <label htmlFor="carbohydrates">carbohydrates</label>
+          <label htmlFor="carbohydrates">Kohlenhydrate (g)</label>
           <input type="number" id='carbohydrates' onChange={(e) => setCarbohydrates(e.target.value)} />
-          <label htmlFor="protein">protein</label>
+          <label htmlFor="protein">Eiweiß (g)</label>
           <input type="number" id='protein' onChange={(e) => setProtein(e.target.value)} />
-          <label htmlFor="salt">salt</label>
+          <label htmlFor="salt">Salz (g)</label>
           <input type="number" id='salt' onChange={(e) => setSalt(e.target.value)} />
-          <label htmlFor="fiber">fiber</label>
+          <label htmlFor="fiber">Ballaststoffe (g)</label>
           <input type="number" id='fiber' onChange={(e) => setFiber(e.target.value)} />
-          <label htmlFor="drink">drink</label>
+          <label htmlFor="drink">Getränk</label>
           <input type="checkbox" id='drink' onChange={(e) => setDrink(e.target.checked)} />
-          {/* <input type="submit" /> */}
           <p>{error}</p>
         </form>
       </Card>

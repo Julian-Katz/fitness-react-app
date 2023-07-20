@@ -47,6 +47,24 @@ h5 {
 
 /* Buttons */
 
+.button {
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  background: var(--primary);
+  color: var(--light-text);
+  font-size: 1.25rem;
+}
+.button.secondary {
+  background: var(--background);
+  box-shadow: inset 0 0 0 5px var(--primary);
+  color: var(--primary);
+}
 
 /* Layout */
 

@@ -69,18 +69,18 @@ function FoodCard(props) {
   const buttons = (
     <>
     {!edit && (
-      <button type="button" onClick={() => setEdit(!edit)}>
-        bearbeiten
+      <button type="button" className='button' onClick={() => setEdit(!edit)}>
+        Bearbeiten
       </button>
     )}
 
     {edit && (
       <>
-      <button type="button" onClick={handleUpdate}>
-        speichern
+      <button type="button" className='button' onClick={handleUpdate}>
+        Speichern
       </button>
-      <button type="button" onClick={handleStopUpdate}>
-        verwerfen
+      <button type="button" className='button secondary' onClick={handleStopUpdate}>
+        Verwerfen
       </button>
       </>
     )}

@@ -32,18 +32,18 @@ function Food(props) {
     const buttons = (
       <>
       {!edit && (
-        <button type="button" onClick={() => setEdit(!edit)}>
-          bearbeiten
+        <button type="button" className='button' onClick={() => setEdit(!edit)}>
+          Bearbeiten
         </button>
       )}
 
       {edit && (
         <>
-        <button type="button" onClick={handleUpdate}>
-          speichern
+        <button type="button" className='button' onClick={handleUpdate}>
+          Speichern
         </button>
-        <button type="button" onClick={handleStopUpdate}>
-          verwerfen
+        <button type="button" className='button' onClick={handleStopUpdate}>
+          Verwerfen
         </button>
         </>
       )}
@@ -89,7 +89,7 @@ function Food(props) {
                     edit={edit}
                     handleChange={(event) => setFood({...food, energy: event.target.value})}
                     />
-                    kcal
+                    <span> kcal</span>
                 </td>
               </tr>
               <tr>
@@ -101,7 +101,7 @@ function Food(props) {
                   edit={edit}
                   handleChange={(event) => setFood({...food, protein: event.target.value})}
                 />
-                g
+                <span> g</span>
                 </td>
               </tr>
               <tr>
@@ -113,7 +113,7 @@ function Food(props) {
                   edit={edit}
                   handleChange={(event) => setFood({...food, carbohydrates: event.target.value})}
                 />
-                g
+                <span> g</span>
                 </td>
               </tr>
               <tr>
@@ -125,7 +125,7 @@ function Food(props) {
                   edit={edit}
                   handleChange={(event) => setFood({...food, fat: event.target.value})}
                 />
-                g
+                <span> g</span>
                 </td>
               </tr>
               <tr>
@@ -137,7 +137,7 @@ function Food(props) {
                   edit={edit}
                   handleChange={(event) => setFood({...food, fiber: event.target.value})}
                 />
-                g
+                <span> g</span>
                 </td>
               </tr>
               <tr>
@@ -149,7 +149,7 @@ function Food(props) {
                   edit={edit}
                   handleChange={(event) => setFood({...food, salt: event.target.value})}
                 />
-                g
+                <span> g</span>
                 </td>
               </tr>
             </tbody>
