@@ -6,7 +6,7 @@ import { loadAsync, selectProfiles, selectActiveProfile } from '../../profileSli
 
 import {ReactComponent as  Profile} from '../../../../assets/icons/person.svg';
 
-function Foods() {
+function DropDownProfile(props) {
   const profiles = useSelector(selectProfiles);
   const activeProfile = useSelector(selectActiveProfile);
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ function Foods() {
 
   const handleOptionClick = (profile) => {
       setOpen(false);
+      props.closeMenu();
       dispatch({type: 'profile/setActiveProfile', payload: profile._id});
   };
 
@@ -38,10 +39,12 @@ function Foods() {
               {profile.name}
             </button>
           ))}
+          {open &&
           <NavLink to="/profile" className='nav-element'>
             <Profile />
             Profil
           </NavLink>
+          }
         </div>
       }
     </div>
@@ -49,4 +52,4 @@ function Foods() {
 }
 
 
-export default Foods;
+export default DropDownProfile;

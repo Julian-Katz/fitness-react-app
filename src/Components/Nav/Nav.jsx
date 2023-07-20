@@ -40,34 +40,27 @@ function Nav() {
         </button>
         <div className='logo'>
           <Logo />
-          {/* <span>Sport</span> */}
         </div>
       </div>
       <nav className={`bar ${isMenuOpen ? 'open' : ''}`}>
         <div className='middle'>
-          <DropDownProfile />
-          <NavLink to="/" className='nav-element'>
+          <DropDownProfile closeMenu={() => setIsMenuOpen(!isMenuOpen)} />
+          <NavLink to="/" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Dashboard />
             Dashboard
           </NavLink>
-          <NavLink to="/day" className='nav-element'>
+          <NavLink to="/day" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Day />
             Tag
           </NavLink>
-          <NavLink to="/foods" className='nav-element'>
+          <NavLink to="/foods" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Food />
             Essen
           </NavLink>
-          <NavLink to="/exercise" className='nav-element'>
+          <NavLink to="/exercise" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Exercise />
             Übungen
           </NavLink>
-        {/* <li className='nav-element'>
-          <NavLink to="/sign-up">Registrieren</NavLink>
-        </li>
-        <li className='nav-element'>
-          <NavLink to="/sign-in">Einloggen</NavLink>
-        </li> */}
         </div>
 
         <div className='bottom'>
