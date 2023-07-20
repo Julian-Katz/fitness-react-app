@@ -1,0 +1,11 @@
+.date{
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.calendar{
+  position: absolute;
+  top: calc(100% + 1rem);
+}

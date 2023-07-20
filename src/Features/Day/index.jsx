@@ -38,12 +38,14 @@ function Day() {
 
   const [date, setDate] = useState(tempDate);
   const [day, setDay] = useState(checkIfDayExists(date));
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   useEffect(() => {
     setDay(checkIfDayExists(date));
   }, [days]);
 
   const handleDateChange = (date) => {
+    setCalendarOpen(false);
     setDate(new Date(date));
     const selectedDay = checkIfDayExists(date);
     if (selectedDay) {
@@ -55,9 +57,17 @@ function Day() {
 
   return (
     <div className="content-area">
-      <h1>Day</h1>
-      <h2>Datum</h2>
-      <Calendar onChange={handleDateChange} value={date} />
+      <h1>Tag</h1>
+      <div className="date">
+        <button className="button" onClick={() => setCalendarOpen(!calendarOpen)}>
+          {date.toLocaleDateString()}
+        </button>
+        {calendarOpen && (
+        <div className="calendar">
+        <Calendar onChange={handleDateChange} value={date} />
+        </div>
+        )}
+      </div>
 
       <Stats day={day} />
 
