@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard />,
+        element: <Day />,
       },
       {
         path: "/foods",
@@ -33,10 +33,6 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-      },
-      {
-        path: "/day",
-        element: <Day />,
       },
     ],
   },

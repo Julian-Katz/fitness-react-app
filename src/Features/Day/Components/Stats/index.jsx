@@ -1,15 +1,23 @@
 import React from "react";
 import  { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectFoods } from '../../../Food/foodSlice';
 import { selectExercises } from '../../../Exercise/exerciseSlice';
-import { selectActiveProfile } from '../../../Profile/profileSlice';
+import { selectActiveProfile, loadAsync as loadProfileAsync} from '../../../Profile/profileSlice';
+import { loadAsync as loadFoodAsync } from '../../../Food/foodSlice';
+import { loadAsync as loadExerciseAsync } from '../../../Exercise/exerciseSlice';
+import { loadAsync as loadDayAsync } from '../../daySlice';
 
 function Stats(props) {
-
+  const dispatch = useDispatch();
   const activeProfile = useSelector(selectActiveProfile);
   const foods = useSelector(selectFoods);
   const exercises = useSelector(selectExercises);
+
+  useEffect(() => {
+    dispatch(loadProfileAsync())
+    dispatch(loadDayAsync(activeProfile._id));
+  }, [dispatch]);
 
   const findFoodById = (id) => {
     const food = foods.find((food) => food._id === id);
@@ -77,11 +85,14 @@ function Stats(props) {
     });
     return carbs;
   };
-
-  const [kcalPerDay, setKcalPerDay] = useState(getKcalPerDay(activeProfile.sex, activeProfile.weight, activeProfile.height, activeProfile.age));
-  const [proteinPerDay, setProteinPerDay] = useState(0.793664791 * activeProfile.weight);
-  const [fatPerDay, setFatPerDay] = useState((0.3 * kcalPerDay) / 9);
-  const [carbsPerDay, setCarbsPerDay] = useState((kcalPerDay - (proteinPerDay * 4) - (fatPerDay * 9)) / 4);
+  const [kcalPerDay, setKcalPerDay] = useState(0);
+  const [proteinPerDay, setProteinPerDay] = useState(0);
+  const [fatPerDay, setFatPerDay] = useState(0);
+  const [carbsPerDay, setCarbsPerDay] = useState(0);
+  // const [kcalPerDay, setKcalPerDay] = useState(getKcalPerDay(activeProfile.sex, activeProfile.weight, activeProfile.height, activeProfile.age));
+  // const [proteinPerDay, setProteinPerDay] = useState(0.793664791 * activeProfile.weight);
+  // const [fatPerDay, setFatPerDay] = useState((0.3 * kcalPerDay) / 9);
+  // const [carbsPerDay, setCarbsPerDay] = useState((kcalPerDay - (proteinPerDay * 4) - (fatPerDay * 9)) / 4);
 
   const [currentKcalPerDay, setCurrentKcalPerDay] = useState(getCurrentKcalPerDay(props.day));
   const [currentExerciseKcalPerDay, setCurrentExerciseKcalPerDay] = useState(getCurrentExerciseKcalPerDay(props.day));
@@ -95,7 +106,12 @@ function Stats(props) {
     setCurrentProteinPerDay(getCurrentProteinPerDay(props.day));
     setCurrentFatPerDay(getCurrentFatPerDay(props.day));
     setCurrentCarbsPerDay(getCurrentCarbsPerDay(props.day));
-  }, [props.day]);
+
+    setKcalPerDay(getKcalPerDay(activeProfile.sex, activeProfile.weight, activeProfile.height, activeProfile.age));
+    setProteinPerDay(0.793664791 * activeProfile.weight);
+    setFatPerDay((0.3 * kcalPerDay) / 9);
+    setCarbsPerDay((kcalPerDay - (proteinPerDay * 4) - (fatPerDay * 9)) / 4);
+  }, [props.day, activeProfile]);
 
   return (
     <>

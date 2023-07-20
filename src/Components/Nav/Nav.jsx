@@ -10,7 +10,6 @@ import DropDownProfile from '../../Features/Profile/Components/DropDownProfile/D
 import {ReactComponent as Menu} from '../../assets/icons/menu.svg';
 import {ReactComponent as Logo} from '../../assets/icons/sports_gymnastics.svg';
 import {ReactComponent as  Profile} from '../../assets/icons/person.svg';
-import {ReactComponent as Dashboard} from '../../assets/icons/dashboard.svg';
 import {ReactComponent as Day} from '../../assets/icons/motion_photos_on.svg';
 import {ReactComponent as Food} from '../../assets/icons/restaurant.svg';
 import {ReactComponent as Exercise} from '../../assets/icons/exercise.svg';
@@ -46,10 +45,6 @@ function Nav() {
         <div className='middle'>
           <DropDownProfile closeMenu={() => setIsMenuOpen(!isMenuOpen)} />
           <NavLink to="/" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Dashboard />
-            Dashboard
-          </NavLink>
-          <NavLink to="/day" className='nav-element' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <Day />
             Tag
           </NavLink>
