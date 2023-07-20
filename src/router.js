@@ -5,7 +5,7 @@ import App from './App';
 import Dashboard from './Features/Dashboard/Dashboard';
 import Foods from './Features/Food/Foods';
 import Exercise from './Features/Exercise/Exercises';
-import AddProfile from './Features/Profile/Components/AddProfile';
+import Profile from './Features/Profile/Components/Profile';
 import Day from './Features/Day/';
 
 import SignIn from './Features/Auth/Components/SignIn/SignIn';
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <AddProfile />,
+        element: <Profile />,
       },
       {
         path: "/day",

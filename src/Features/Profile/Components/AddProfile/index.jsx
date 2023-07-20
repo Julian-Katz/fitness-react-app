@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProfileAsync, selectError } from '../profileSlice';
+import { addProfileAsync, selectError } from '../../profileSlice';
+
+import Card from '../../../../Components/Card';
 
 function Foods() {
   const dispatch = useDispatch();
-  // const error = useSelector(selectError);
+  const error = useSelector(selectError);
 
-  const [name, setName] = React.useState('');
-  const [age, setAge] = React.useState('');
-  const [height, setHeight] = React.useState('');
-  const [weight, setWeight] = React.useState('');
-  const [sex, setSex] = React.useState('');
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [sex, setSex] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,12 +23,16 @@ function Foods() {
       weight,
       sex,
     }))
-
-
   };
 
+  const buttons = (
+    <>
+      <button type="submit" onClick={handleSubmit} >Submit</button>
+    </>
+  )
+
   return (
-    <div className='content-area'>
+    <Card buttons={buttons}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input id="name" type="text" onChange={(e) => setName(e.target.value)} />
@@ -59,10 +65,9 @@ function Foods() {
           />
           <label htmlFor="female">Female</label>
         </div>
-        <button type="submit">Submit</button>
+        <p>{error}</p>
       </form>
-      {/* <p>{ error }</p> */}
-    </div>
+    </Card>
   );
 }
 
