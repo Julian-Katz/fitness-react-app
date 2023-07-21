@@ -36,13 +36,13 @@ function Foods() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input id="name" type="text" onChange={(e) => setName(e.target.value)} />
-        <label htmlFor="age">Age</label>
+        <label htmlFor="age">Alter</label>
         <input id="age" type="number" onChange={(e) => setAge(e.target.value)} />
-        <label htmlFor="height">Height (cm)</label>
+        <label htmlFor="height">Größe (cm)</label>
         <input id="height" type="number" onChange={(e) => setHeight(e.target.value)} />
-        <label htmlFor="weight">Weight (kg)</label>
+        <label htmlFor="weight">Gewicht (kg)</label>
         <input id="weight" type="number" onChange={(e) => setWeight(e.target.value)} />
-        <label htmlFor="sex">Sex</label>
+        <label htmlFor="sex">Geschlecht</label>
         <div>
           <input
             type="radio"
@@ -52,7 +52,7 @@ function Foods() {
             checked={sex === 'male'}
             onChange={(e) => {setSex(e.target.value)}}
           />
-          <label htmlFor="male">Male</label>
+          <label htmlFor="male">Männlich</label>
         </div>
         <div>
           <input
@@ -63,7 +63,7 @@ function Foods() {
             checked={sex === 'female'}
             onChange={(e) => {setSex(e.target.value)}}
           />
-          <label htmlFor="female">Female</label>
+          <label htmlFor="female">Weiblich</label>
         </div>
         <p>{error}</p>
       </form>

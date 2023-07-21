@@ -91,8 +91,36 @@ function ProfileCard(props) {
           /> kg
         </p>
         <p>
-          <b>Geschlecht: </b>
-          <span>{profile.sex}</span>
+        {!edit ? (
+            <>
+            <b>Geschlecht: </b>
+            <span>{profile.sex === 'male' ? "männlich" : "weiblich" }</span>
+            </>
+          )
+          : (
+            <>
+          <label htmlFor="sex"><b>Geschlecht: </b></label>
+            <input
+              type="radio"
+              id="male"
+              name="sex"
+              value="male"
+              checked={profile.sex === 'male'}
+              onChange={(event) => setProfile({...profile, sex: event.target.value})}
+            />
+            <label htmlFor="male">Männlich</label>
+            <input
+              type="radio"
+              id="female"
+              name="sex"
+              value="female"
+              checked={profile.sex === 'female'}
+              onChange={(event) => setProfile({...profile, sex: event.target.value})}
+            />
+            <label htmlFor="female">Weiblich</label>
+            </>
+          )
+        }
         </p>
       </div>
     </Card>
