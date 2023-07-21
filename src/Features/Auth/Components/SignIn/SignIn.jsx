@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { signInAsync, selectError } from "../../authSlice";
 import { useNavigate } from "react-router-dom";
+import Card from "../../../../Components/Card";
+import './SignIn.scoped.css'
 
 
 function LogIn() {
@@ -13,26 +15,33 @@ function LogIn() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const resultAction = await dispatch(signInAsync({ email, password }));
     if (signInAsync.fulfilled.match(resultAction)) {
       navigate("/");
     }
   };
 
+  const buttons = (
+    <>
+      <button type="submit" className='button' onClick={handleSubmit} >Anmelden</button>
+    </>
+  )
+
   return (
-    <div>
-      <h1>Anmelden</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+    <div className="start-container">
+      <Card buttons={buttons}>
+        <div className="header">
+        <h2>Anmelden</h2>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} />
 
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
-
-        <button type="submit">Anmelden</button>
-      </form>
-      <p>{error}</p>
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
+        </form>
+        <p>{error}</p>
+      </Card>
     </div>
   );
 }

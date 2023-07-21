@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { signUpAsync, selectError } from "../../authSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Card from "../../../../Components/Card";
+import './SignUp.scoped.css'
 
 function SignUp() {
     const disptach = useDispatch();
@@ -19,9 +21,15 @@ function SignUp() {
         navigate("/");
       }
     }
+    const buttons = (
+      <>
+        <button type="submit" className='button' onClick={handleSubmit} >Registrieren</button>
+      </>
+    )
 
     return (
-        <div>
+        <div className="start-container">
+          <Card buttons={buttons}>
             <h1>Registrieren</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
@@ -29,10 +37,9 @@ function SignUp() {
 
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
-
-                <button type="submit">Registrieren</button>
             </form>
             <p>{error}</p>
+          </Card>
         </div>
     );
 };
