@@ -104,7 +104,8 @@ function FoodCard(props) {
           value={foodAmount}
           edit={edit}
           handleChange={(event) => setFoodAmount(event.target.value)}
-        />g
+        />
+        <span> g</span>
       </p>
       <p>{error}</p>
       </div>

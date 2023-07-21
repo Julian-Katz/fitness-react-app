@@ -64,7 +64,7 @@ function Day() {
         </button>
         {calendarOpen && (
         <div className="calendar">
-        <Calendar onChange={handleDateChange} value={date} />
+          <Calendar onChange={handleDateChange} value={date} />
         </div>
         )}
       </div>

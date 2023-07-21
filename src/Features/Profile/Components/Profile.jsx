@@ -13,6 +13,7 @@ function Profile() {
 
   return (
     <div className='content-area'>
+      <h1>Profile</h1>
       <AddProfile />
       {profiles.map((profile) => (
         <ProfileCard key={profile._id} profile={profile} />

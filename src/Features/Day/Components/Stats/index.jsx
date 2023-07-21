@@ -7,6 +7,8 @@ import { selectActiveProfile, loadAsync as loadProfileAsync} from '../../../Prof
 import { loadAsync as loadFoodAsync } from '../../../Food/foodSlice';
 import { loadAsync as loadExerciseAsync } from '../../../Exercise/exerciseSlice';
 import { loadAsync as loadDayAsync } from '../../daySlice';
+import Chart from "react-apexcharts";
+import './Stats.scoped.css';
 
 function Stats(props) {
   const dispatch = useDispatch();
@@ -89,10 +91,6 @@ function Stats(props) {
   const [proteinPerDay, setProteinPerDay] = useState(0);
   const [fatPerDay, setFatPerDay] = useState(0);
   const [carbsPerDay, setCarbsPerDay] = useState(0);
-  // const [kcalPerDay, setKcalPerDay] = useState(getKcalPerDay(activeProfile.sex, activeProfile.weight, activeProfile.height, activeProfile.age));
-  // const [proteinPerDay, setProteinPerDay] = useState(0.793664791 * activeProfile.weight);
-  // const [fatPerDay, setFatPerDay] = useState((0.3 * kcalPerDay) / 9);
-  // const [carbsPerDay, setCarbsPerDay] = useState((kcalPerDay - (proteinPerDay * 4) - (fatPerDay * 9)) / 4);
 
   const [currentKcalPerDay, setCurrentKcalPerDay] = useState(getCurrentKcalPerDay(props.day));
   const [currentExerciseKcalPerDay, setCurrentExerciseKcalPerDay] = useState(getCurrentExerciseKcalPerDay(props.day));
@@ -113,25 +111,33 @@ function Stats(props) {
     setCarbsPerDay((kcalPerDay - (proteinPerDay * 4) - (fatPerDay * 9)) / 4);
   }, [props.day, activeProfile]);
 
+  const options = {
+    labels: ["Kalorien", "Eiweiß", "Fett", "Kohlenhydrate"],
+    series: [
+      Math.floor((currentKcalPerDay + currentExerciseKcalPerDay)  / kcalPerDay * 100 ),
+      Math.floor(currentProteinPerDay / proteinPerDay * 100),
+      Math.floor(currentFatPerDay / fatPerDay * 100),
+      Math.floor(currentCarbsPerDay / carbsPerDay * 100)
+    ],
+  };
+
   return (
     <>
-      <h2>Tagesbedarf</h2>
-      <div>
-        <p>Kalorien pro Tag soll: {Math.floor(kcalPerDay)}kcal</p>
-        <p>Kalorien pro Tag ist: {Math.floor(currentKcalPerDay)}kcal</p>
-        <p>Kalorien pro Tag durch Übungen: {Math.floor(currentExerciseKcalPerDay)}kcal</p>
+      <h2>Nährwerte</h2>
+      <div className="element">
+        <Chart
+          type="radialBar"
+          series={options.series}
+          options={options}
+        />
       </div>
-      <div>
-        <p>Eiweiß pro Tag soll: {Math.floor(proteinPerDay)}g</p>
-        <p>Eiweiß pro Tag ist: {Math.floor(currentProteinPerDay)}g</p>
-      </div>
-      <div>
-        <p>Kohlenhydrate pro Tag soll: {Math.floor(carbsPerDay)}g</p>
-        <p>Kohlenhydrate pro Tag ist: {Math.floor(currentCarbsPerDay)}g</p>
-      </div>
-      <div>
-        <p>Fett pro Tag soll: {Math.floor(fatPerDay)}g</p>
-        <p>Fett pro Tag ist: {Math.floor(currentFatPerDay)}g</p>
+      <div className="element">
+        <p>Kalorien Tagesbedarf: {Math.floor(kcalPerDay)} kcal </p>
+        <p>Kalorien durch Übungen: {Math.floor(currentExerciseKcalPerDay)} kcal</p>
+        <p>Kalorien heute: {Math.floor(currentKcalPerDay + currentExerciseKcalPerDay)} / {Math.floor(kcalPerDay)} kcal</p>
+        <p>Eiweiß heute:  {Math.floor(currentProteinPerDay)} / {Math.floor(proteinPerDay)} g</p>
+        <p>Kohlenhydrate heute: {Math.floor(currentCarbsPerDay)} / {Math.floor(carbsPerDay)} g</p>
+        <p>Fett heute: {Math.floor(currentFatPerDay)} / {Math.floor(fatPerDay)} g</p>
       </div>
     </>
   );

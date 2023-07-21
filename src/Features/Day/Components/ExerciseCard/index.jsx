@@ -104,7 +104,8 @@ function ExerciseCard(props) {
           value={exerciseTime}
           edit={edit}
           handleChange={(event) => setExerciseTime(event.target.value)}
-        />min
+        />
+        <span> min</span>
       </p>
       <p>{error}</p>
       </div>
