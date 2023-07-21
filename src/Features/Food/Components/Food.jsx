@@ -154,6 +154,12 @@ function Food(props) {
               </tr>
             </tbody>
           </table>
+          {edit && (
+            <>
+            <label htmlFor="drink">Getränk</label>
+            <input type="checkbox" id='drink' checked={food.drink} onChange={(event) => setFood({...food, drink: event.target.checked})} />
+            </>
+          )}
         </Card>
     );
 };
