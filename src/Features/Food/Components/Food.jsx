@@ -156,7 +156,7 @@ function Food(props) {
           </table>
           {edit && (
             <>
-            <label htmlFor="drink">Getränk</label>
+            <label htmlFor="drink"><b>Getränk: </b></label>
             <input type="checkbox" id='drink' checked={food.drink} onChange={(event) => setFood({...food, drink: event.target.checked})} />
             </>
           )}
